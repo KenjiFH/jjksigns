@@ -46,7 +46,7 @@ Instead of using heavy Deep Learning models, this project demonstrates an effici
 | :--- | :--- |
 | **ESC** | Quit the application |
 | **TAB** | Cycle through available gesture labels (for recording,  |
-| **Hold 'C'** | Record training data for the selected label, 2 handed gestures are automatically recorded so no need for a third hand |
+| **Hold 'C'** | Record training data for the selected label, 2 handed gestures are automatically recorded when switched to so no need for a third hand |
 
 ### Creating Your Own Gestures (The Pipeline)
 This project includes a full training loop. To add a new gesture:
