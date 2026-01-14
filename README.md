@@ -1,4 +1,4 @@
-# Domain Expansion: Real-Time Gesture Recognition with MediaPipe & SVMs
+# Real-Time Gesture Recognition with MediaPipe & SVMs
 
 ### A Computer Vision & HCI Project inspired by Jujutsu Kaisen
 
