@@ -2,7 +2,6 @@
 
 ### A Computer Vision & HCI Project inspired by Jujutsu Kaisen
 
-![License](https://img.shields.io/badge/license-MIT-blue) ![Python](https://img.shields.io/badge/python-3.11-yellow) ![OpenCV](https://img.shields.io/badge/OpenCV-Computer%20Vision-red)
 
 ## 📖 Overview
 This project is a real-time gesture recognition engine that triggers visual effects (like *Domain Expansions* from JJK) based on specific hand signs. 
