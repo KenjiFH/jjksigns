@@ -165,7 +165,9 @@ def apply_visual_effects(frame, gesture_name, confidence, active_effect, effect_
         elif gesture_name[0] == "Sukuna_Shrine":
             active_effect = "SUKUNA"
             effect_timer = 30
-
+        else:
+            active_effect = None
+            effect_timer = 0
 
     if gesture_name[0] == "None" or confidence < 0.50: 
         active_effect = None
