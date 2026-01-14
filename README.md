@@ -22,7 +22,7 @@ Instead of using heavy Deep Learning models, this project demonstrates an effici
 * **Scikit-Learn:** SVM (RBF Kernel) for gesture classification.
 * **NumPy:** Vector math and normalization.
 
-## 🚀 Installation
+## 🚀 Installation (i would reccomend setting up a venv first)
 
 1.  **Clone the repo**
     ```bash
