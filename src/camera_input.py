@@ -9,9 +9,22 @@ import os
 # ==============================
 # CONFIGURATION & CONSTANTS
 # ==============================
-MODEL_PATH = "/Users/kenjifahselt/Desktop/proj/jjksigns/models/hand_landmarker.task"
-PICKLE_MODEL_PATH = '/Users/kenjifahselt/Desktop/proj/jjksigns/notebooks/gesture_model.pkl'
-CSV_FILE = '/Users/kenjifahselt/Desktop/proj/jjksigns/models/keypoint_classifier/keypoints.csv'
+from pathlib import Path
+
+# 1. Get the directory where THIS script is located
+# .resolve() converts it to an absolute path so it's robust
+# .parent gives you the folder containing the file
+SCRIPT_DIR = Path(__file__).resolve().parent.parent
+
+# 2. Construct paths relative to the script location
+# logic: script_dir / "folder" / "filename"
+
+MODEL_PATH = SCRIPT_DIR / "models" / "hand_landmarker.task"
+PICKLE_MODEL_PATH = SCRIPT_DIR / "notebooks" / "gesture_model.pkl"
+CSV_FILE = SCRIPT_DIR / "models" / "keypoint_classifier" / "keypoints.csv"
+
+# Optional: Print to verify on run
+print(f"Loading model from: {MODEL_PATH}")
 
 CLASS_NAMES = [
     ("ThumbsUp", 1),      # Must see exactly 1 hand
@@ -276,7 +289,7 @@ def main():
     effect_timer = 0
 
     options = HandLandmarkerOptions(
-        base_options=BaseOptions(model_asset_path=MODEL_PATH),
+        base_options=BaseOptions(model_asset_path=str(MODEL_PATH)), # wrap in a str cuz pathlib creates a special Path object (specifically a PosixPath on Mac). MediaPipe tries to .encode() it like a string, which fails.
         running_mode=VisionRunningMode.VIDEO,
         num_hands=2,
         min_hand_detection_confidence=0.9
