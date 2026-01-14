@@ -1,0 +1,11 @@
+# Core
+# pip freeze > requirements.txt
+numpy
+opencv-python
+
+# MediaPipe 0.10.31
+mediapipe
+
+# Notebook support
+jupyter
+ipykernel
