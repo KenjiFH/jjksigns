@@ -208,9 +208,9 @@ def draw_ui_overlay(frame, status_text, color, confidence, target_label, class_i
     cv2.rectangle(frame, (20, bar_y_start), (220, bar_y_end), (255, 255, 255), 2)
 
     # Instructions
-    cv2.putText(frame, f"Current Label: {target_label} at index: {class_index} (Press TAB to switch)", (10, 30), 
+    cv2.putText(frame, f"Training Current Label: {target_label} at index: {class_index} (Press TAB to switch)", (10, 30), 
             cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
-    cv2.putText(frame, f"Hold 'c' to record", (10, 60), 
+    cv2.putText(frame, f"Hold 'c' to record Frame", (10, 60), 
             cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
 
 # ==============================
