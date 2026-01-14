@@ -53,13 +53,9 @@ This project includes a full training loop. To add a new gesture:
 
 1.  Run the app.
 2.  Press `TAB` to select a label (or add a new one in `CLASS_NAMES` in the code).
-3.  Hold **'C'** while performing the gesture to capture ~50-100 frames of data. if you want a 2 handed gesture you have to specify in the CLASS_NAMES list like this CLASS_NAMES = [
-    ("ThumbsUp", 1),      # Must see exactly 1 hand
-    ("Peace", 1),         # Must see exactly 1 hand
-    ("Gojo_Void", 1),     # Must see exactly 2 hands 
-    ("Sukuna_Shrine", 2), # Must see exactly 2 hands
-    ("Cinema", 2)
-]
+3.  Hold **'C'** while performing the gesture to capture ~50-100 frames of data. if you want a 2 handed gesture you have to specify in the CLASS_NAMES list like this ("Sukuna_Shrine", 2)
+    ("ThumbsUp", 1),     
+
 4.  The data is saved to `models/keypoint_classifier/keypoints.csv`.
 5.  Open `notebooks/train_model.ipynb` and run the cells to retrain the SVM.
 6.  The new model will be saved as `gesture_model.pkl`. Restart the app to use it!
