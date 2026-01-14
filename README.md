@@ -27,7 +27,7 @@ Instead of using heavy Deep Learning models, this project demonstrates an effici
 
 1.  **Clone the repo**
     ```bash
-    git clone [https://github.com/yourusername/jjksigns.git](https://github.com/yourusername/jjksigns.git)
+    git clone [https://github.com/KenjiFH/jjksigns.git](https://github.com/KenjiFH/jjksigns.git)
     cd jjksigns
     ```
 
