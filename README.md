@@ -15,6 +15,11 @@ Instead of using heavy Deep Learning models, this project demonstrates an effici
 * **Visual Effects engine:** Triggers complex overlays (Infinite Void, Malevolent Shrine) upon high-confidence detection.
 * **HCI Principles:** Implements hysteresis and confidence thresholds to prevent UI flickering.
 
+ ## 🏗️ Architecture & Design
+This project was built also following industry-standard engineering practices.
+* **[Read the RFC/Design Docs](https://github.com/KenjiFH/jjksigns/tree/main/Documentation%20Artifacts):** Initial proposal, goals, and non-goals and technical specifications, model selection rationale and data pipeline architecture..
+** 
+
 ## 🛠️ Tech Stack
 * **Python 3.11**
 * **OpenCV:** Video capture and visual overlay rendering.
