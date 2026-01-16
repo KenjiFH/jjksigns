@@ -17,8 +17,8 @@ Instead of using heavy Deep Learning models, this project demonstrates an effici
 
  ## 🏗️ Architecture & Design
 This project was built also following industry-standard engineering practices.
-* **[Read the RFC/Design Docs](https://github.com/KenjiFH/jjksigns/tree/main/Documentation%20Artifacts):** Initial proposal, goals, and non-goals and technical specifications, model selection rationale and data pipeline architecture..
-** 
+* **[Read the RFC/Design Docs](https://github.com/KenjiFH/jjksigns/tree/main/Documentation%20Artifacts):** Initial proposal, goals, and non-goals and technical specifications, model selection rationale and data pipeline architecture!
+
 
 ## 🛠️ Tech Stack
 * **Python 3.11**
