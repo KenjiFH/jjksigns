@@ -151,7 +151,7 @@ def draw_hand(frame, hand_landmarks):
         x1, y1 = int(hand_landmarks[start].x * w), int(hand_landmarks[start].y * h)
         x2, y2 = int(hand_landmarks[end].x * w), int(hand_landmarks[end].y * h)
         cv2.line(frame, (x1, y1), (x2, y2), (255, 0, 0), 2)
-
+#TODO get rid of this spagetti if else code with strategy pattern (ABC, abstractmethod)
 def apply_visual_effects(frame, gesture_name, confidence, active_effect, effect_timer):
     """
     Handles the state logic for Gojo/Sukuna effects.
@@ -187,6 +187,7 @@ def apply_visual_effects(frame, gesture_name, confidence, active_effect, effect_
         elif active_effect == "SUKUNA":
             overlay[:] = (0, 0, 200)
             frame = cv2.addWeighted(frame, 1.0, overlay, 0.3, 0)
+            
             text = "DOMAIN EXPANSION: MALEVOLENT SHRINE"
             color = (0, 0, 255)
         else:
