@@ -26,8 +26,8 @@ This project was built also following industry-standard engineering practices.
 * **Python 3.11**
 * **OpenCV:** Video capture and visual overlay rendering.
 * **MediaPipe:** Hand landmark detection.
-* **Scikit-Learn:** SVM (RBF Kernel) for gesture classification.
-* **NumPy:** Vector math and normalization.
+* **Scikit-Learn:** SVM-rbf for gesture classification.
+* **NumPy:** Normalization of key landmarks into vector space.
 
 ## 🚀 Installation (i would reccomend setting up a venv first)
 
