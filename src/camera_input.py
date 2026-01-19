@@ -405,6 +405,7 @@ def main():
 
                 # Visualize Hands
                 for hand in result.hand_landmarks:
+                    
                     draw_hand(frame, hand)
 
             # 3. Apply Effects (State Update)
