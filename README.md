@@ -2,7 +2,7 @@
 
 ### A Computer Vision & HCI Project inspired by Jujutsu Kaisen
 
-[![Watch the video](https://img.youtube.com/vi/<2bWz5j0GGt4>/hqdefault.jpg)](https://www.youtube.com/embed/<2bWz5j0GGt4>)
+[![Watch the video](https://www.youtube.com/watch?v=2bWz5j0GGt4/hqdefault.jpg)](https://www.youtube.com/watch?v=2bWz5j0GGt4)
 
 
 ## 📖 Overview
