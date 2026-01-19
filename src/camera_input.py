@@ -320,7 +320,7 @@ def perform_inference(model, merged_features):
     confidence = probs[max_idx]
     gesture_name = CLASS_NAMES[max_idx]
 
-    CONFIDENCE_THRESHOLD = 0.80  
+    CONFIDENCE_THRESHOLD = 0.90  
     if confidence > CONFIDENCE_THRESHOLD:
         status_text = f"{gesture_name}: {confidence:.2f}"
         color = (0, 255, 0) 
