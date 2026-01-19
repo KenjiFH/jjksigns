@@ -2,6 +2,8 @@
 
 ### A Computer Vision & HCI Project inspired by Jujutsu Kaisen
 
+[![Watch the video](https://img.youtube.com/vi/<2bWz5j0GGt4>/hqdefault.jpg)](https://www.youtube.com/embed/<2bWz5j0GGt4>)
+
 
 ## 📖 Overview
 This project is a real-time gesture recognition engine that triggers visual effects based on specific hand signs. 
