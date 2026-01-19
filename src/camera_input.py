@@ -187,7 +187,7 @@ def apply_visual_effects(frame, gesture_name, confidence, active_effect, effect_
     Returns: (frame, updated_active_effect, updated_effect_timer)
     """
     # Trigger Logic
-    if confidence > 0.80:
+    if confidence > 0.90:
         if gesture_name[0] == "Gojo_Void":
             active_effect = "GOJO"
             effect_timer = 30  
