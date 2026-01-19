@@ -6,6 +6,10 @@ import pickle
 import csv
 import os
 
+#for stat pattern
+import random
+from abc import ABC, abstractmethod
+
 # ==============================
 # CONFIGURATION & CONSTANTS
 # ==============================
@@ -151,6 +155,31 @@ def draw_hand(frame, hand_landmarks):
         x1, y1 = int(hand_landmarks[start].x * w), int(hand_landmarks[start].y * h)
         x2, y2 = int(hand_landmarks[end].x * w), int(hand_landmarks[end].y * h)
         cv2.line(frame, (x1, y1), (x2, y2), (255, 0, 0), 2)
+
+
+# Strategy pattern Blueprint, for defining new gestures
+class VisualEffect(ABC):
+    def __init__(self, duration=30):
+        self.max_duration = duration
+        self.timer = 0
+
+    def start(self):
+        """Resets the timer to start the effect."""
+        self.timer = self.max_duration
+
+    @property
+    def is_active(self):
+        return self.timer > 0
+
+    def update(self):
+        """Tick down the timer."""
+        if self.timer > 0:
+            self.timer -= 1
+
+    @abstractmethod
+    def render(self, frame):
+        """Draw the effect on the frame. Must be implemented by children."""
+        pass
 #TODO get rid of this spagetti if else code with strategy pattern (ABC, abstractmethod)
 def apply_visual_effects(frame, gesture_name, confidence, active_effect, effect_timer):
     """
@@ -158,7 +187,7 @@ def apply_visual_effects(frame, gesture_name, confidence, active_effect, effect_
     Returns: (frame, updated_active_effect, updated_effect_timer)
     """
     # Trigger Logic
-    if confidence > 0.90:
+    if confidence > 0.80:
         if gesture_name[0] == "Gojo_Void":
             active_effect = "GOJO"
             effect_timer = 30  
@@ -180,16 +209,62 @@ def apply_visual_effects(frame, gesture_name, confidence, active_effect, effect_
         h, w, _ = frame.shape
         
         if active_effect == "GOJO":
-            overlay[:] = (255, 20, 180) 
+             # --- GOJO EFFECT---
+            # --- 1. "Information Overload" (Inverted Colors) ---
+            # We blend the normal frame with an inverted version of itself.
+            # This creates a "negative" ghosting effect that mimics the anime's visual style.
+            inverted_frame = cv2.bitwise_not(frame)
+            frame = cv2.addWeighted(frame, 0.6, inverted_frame, 0.4, 0) 
+
+            # --- 2. The "Void" Atmosphere (Deep Purple + Stars) ---
+            overlay = np.zeros_like(frame)
+            overlay[:] = (255, 50, 100) # Deeper, darker Violet (BGR) instead of hot pink
+            
+            # --- 3. Dynamic Stars (The "Infinite" part) ---
+            # Draw 50 random white dots every frame to simulate moving through space
+            
+            for _ in range(50):
+                star_x = random.randint(0, w)
+                star_y = random.randint(0, h)
+                star_size = random.randint(1, 3) # Tiny white dots
+                cv2.circle(overlay, (star_x, star_y), star_size, (255, 255, 255), -1)
+                
+            # Blend the Starry Purple Overlay onto the Inverted Frame
             frame = cv2.addWeighted(frame, 1.0, overlay, 0.4, 0)
+
+            # Text
             text = "DOMAIN EXPANSION: UNLIMITED VOID"
             color = (255, 255, 255)
         elif active_effect == "SUKUNA":
+            # --- SUKUNA EFFECT: Red Tint + Rapid Slashes ---
+            
+            # Background Red Tint
             overlay[:] = (0, 0, 200)
             frame = cv2.addWeighted(frame, 1.0, overlay, 0.3, 0)
             
+            # Draw Rapid Slashes
+            #  draw 5-10 random lines per frame to simulate rapid cuts
+            num_slashes = random.randint(5, 10) 
+            
+            for _ in range(num_slashes):
+                # Randomize start and end points
+                # Case A: Horizontal/Diagonal Slash
+                if random.choice([True, False]): 
+                    x1, x2 = 0, w
+                    y1 = random.randint(0, h)
+                    y2 = random.randint(0, h)
+                # Case B: Vertical/Diagonal Slash
+                else:
+                    x1 = random.randint(0, w)
+                    x2 = random.randint(0, w)
+                    y1, y2 = 0, h
+
+                # Draw the line (White, variable thickness)
+                thickness = random.randint(1, 4)
+                cv2.line(frame, (x1, y1), (x2, y2), (255, 255, 255), thickness)
+
             text = "DOMAIN EXPANSION: MALEVOLENT SHRINE"
-            color = (0, 0, 255)
+            color = (0, 0, 255) # Red text
         else:
             text = ""
             color = (255,255,255)
