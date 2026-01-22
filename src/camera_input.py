@@ -15,18 +15,18 @@ from pathlib import Path
 
 # 1. Path Setup
 SCRIPT_DIR = Path(__file__).resolve().parent.parent
-MODEL_PATH = SCRIPT_DIR / "models" / "hand_landmarker.task"
+MEDIAPIPE_MODEL_PATH = SCRIPT_DIR / "models" / "hand_landmarker.task"
 PICKLE_MODEL_PATH = SCRIPT_DIR / "notebooks" / "gesture_model.pkl"
 CSV_FILE = SCRIPT_DIR / "models" / "keypoint_classifier" / "keypoints.csv"
 
-print(f"Loading model from: {MODEL_PATH}")
+print(f"Loading model from: {MEDIAPIPE_MODEL_PATH}")
 
 # UPDATED CLASS NAMES
 CLASS_NAMES = [
     ("ThumbsUp", 1),      
     ("Peace", 1),         
     ("Gojo_Void", 1),     
-    ("Sukuna_Shrine", 2), 
+    ("Sukuna_Shrine", 2),  # second paramater indicates amount of hands needed for the gesture
     ("Unknown_2_Hand", 2), # New: Junk data for 2 hands (e.g., clapping, crossed arms)
     ("Unknown", 1)         # New: Junk data for 1 hand (e.g., scratching nose, resting)
 ]
@@ -304,6 +304,13 @@ def handle_data_collection(key, merged_features, class_index, current_label_tupl
 def handle_effects(frame, gesture_name_tuple, confidence, active_effect_instance, registry):
     gesture_label = gesture_name_tuple[0] 
 
+    # ==============================
+    # confidence score alone is not sufficient to get that "snappy" recognition we need, especially with
+    # svm which forces conformity to one class, even if confidence is shaky, this is why we needed an "unknown" class
+    # basically just do a bunch of random hand movments and record them into the unknown class to filter out false positives,
+    # this works especially well with non gestures that are mistaknely classified
+    # ==============================
+    #
     # --- A. TRIGGER LOGIC ---
     if confidence > 0.90 and gesture_label in registry:
         active_effect_instance = registry[gesture_label]
@@ -342,7 +349,7 @@ def main():
     current_effect_obj = None 
 
     options = HandLandmarkerOptions(
-        base_options=BaseOptions(model_asset_path=str(MODEL_PATH)), 
+        base_options=BaseOptions(model_asset_path=str(MEDIAPIPE_MODEL_PATH)), 
         running_mode=VisionRunningMode.VIDEO,
         num_hands=2,
         min_hand_detection_confidence=0.9
@@ -373,6 +380,7 @@ def main():
                 merged_features = merge_two_hands(result)
                 gesture_name, confidence, status_text, color = perform_inference(model, merged_features)
                 for hand in result.hand_landmarks:
+                    
                     draw_hand(frame, hand)
 
             # --- USE NEW HANDLER ---
