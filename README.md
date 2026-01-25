@@ -1,10 +1,10 @@
 # Real-Time Gesture Recognition with MediaPipe, Jupyter, and Scikit
 
 ### A Computer Vision & HCI Project inspired by Jujutsu Kaisen
-[![Watch the videos](https://www.youtube.com/watch?v=2bWz5j0GGt4/hqdefault.jpg)](https://youtu.be/r01XqmNTPJQ)
+[![Watch the Demos](https://www.youtube.com/watch?v=2bWz5j0GGt4/hqdefault.jpg)](https://youtu.be/r01XqmNTPJQ)
 
 
-[![Watch the videos](https://www.youtube.com/watch?v=2bWz5j0GGt4/hqdefault.jpg)](https://www.youtube.com/watch?v=2bWz5j0GGt4)
+[![Watch the Demos](https://www.youtube.com/watch?v=2bWz5j0GGt4/hqdefault.jpg)](https://www.youtube.com/watch?v=2bWz5j0GGt4)
 
 
 
