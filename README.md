@@ -14,7 +14,7 @@ This project is a real-time gesture recognition engine that triggers visual effe
 Instead of using heavy Deep Learning models, this project demonstrates an efficient **Machine Learning Pipeline** using **Google MediaPipe** for landmark extraction and a **Support Vector Machine (SVM)** for classification. This approach ensures low latency and high accuracy even on standard CPU hardware.
 
 ## ✨ Features
-* **Real-time Hand Tracking:** Uses MediaPipe to track 21 3D landmarks per hand.
+* **Real-time Hand Tracking:** Uses MediaPipe to track 21 3D landmarks per hand (129 features total).
 * **Custom ML Pipeline:** Features a built-in data collection mode to create your own datasets.
 * **Scale Invariance:** Custom vector normalization logic ensures gestures work at any distance from the camera.
 * **Visual Effects engine:** Triggers complex overlays (Infinite Void, Malevolent Shrine) upon high-confidence detection.
