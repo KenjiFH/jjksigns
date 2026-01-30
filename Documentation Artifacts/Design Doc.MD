@@ -1,8 +1,3 @@
-Based on the rules provided, here is the refactored Design Document formatted as a decision record.
-
----
-
-```markdown
 # RFC: Geometric Hand Gesture Recognition Architecture
 
 **Status:** Proposed
@@ -60,5 +55,3 @@ The pipeline is strictly defined as follows:
 ### Negative
 * **Perception Bottleneck:** The system is hard-capped by MediaPipe's limitations. If lighting is poor, MediaPipe may fail to detect hands or hallucinate hands from face landmarks. The downstream classifier cannot recover from these upstream errors.
 * **Static Limitation:** The current architecture is optimized for static poses. Dynamic gestures requiring velocity or trajectory analysis would require a significant re-architecture of the feature extraction layer.
-
-```
