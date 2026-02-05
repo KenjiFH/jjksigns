@@ -166,7 +166,7 @@ def hand_to_feature_vector(hand):
     for lm in hand:
         coords.append([lm.x - wrist.x, lm.y - wrist.y, lm.z - wrist.z])
     ref = coords[9] 
-    scale = math.sqrt(ref[0]**2 + ref[1]**2 + ref[2]**2) + 1e-6 
+    scale = math.sqrt(ref[0]**2 + ref[1]**2 + ref[2]**2) + 1e-6 #mediapipe does not normalize for DISTANCE so we must use euclid dist formula here
     coords = [[c / scale for c in p] for p in coords]
     feature_vector = []
     for p in coords:
