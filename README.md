@@ -9,7 +9,7 @@
 
 
 ## 📖 Overview
-This project is a real-time gesture recognition engine that triggers visual effects based on specific hand signs. 
+This project is a real-time gesture recognition engine that triggers visual effects based on specific hand signs, it is fully extensible allowing users to train and record their own gestures.
 
 Instead of using heavy Deep Learning models, this project demonstrates an efficient **Machine Learning Pipeline** using **Google MediaPipe** for landmark extraction and a **Support Vector Machine (SVM)** for classification. This approach ensures low latency and high accuracy even on standard CPU hardware.
 
