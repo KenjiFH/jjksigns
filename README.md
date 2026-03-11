@@ -32,7 +32,7 @@ This project was built also following industry-standard engineering practices.
 * **Scikit-Learn:** SVM-rbf for gesture classification.
 * **NumPy:** Normalization of key landmarks into vector space.
 
-## 🚀 Installation (i would reccomend setting up a venv first)
+## 🚀 Installation 
 
 1.  **Clone the repo**
     ```bash
