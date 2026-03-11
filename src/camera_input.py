@@ -299,7 +299,7 @@ def handle_data_collection(key, merged_features, class_index, current_label_tupl
         print(f"Sample saved for {current_label_tuple}")
 
 # ==============================
-# 2. NEW EFFECTS HANDLER
+# NEW EFFECTS HANDLER
 # ==============================
 def handle_effects(frame, gesture_name_tuple, confidence, active_effect_instance, registry):
     gesture_label = gesture_name_tuple[0] 
